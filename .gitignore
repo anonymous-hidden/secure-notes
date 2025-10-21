@@ -1,70 +1,403 @@
-# ----------------------------
-# Python general ignores
-# ----------------------------
+# SecureNotes .gitignore - Security-focused exclusions
+
+# =====================================
+# CRITICAL SECURITY FILES - NEVER COMMIT
+# =====================================
+
+# User data and encryption keys
+.users.key
+users.json.enc
+users.json
+*.notes.enc
+*.notes.enc.pclock
+
+# Security and audit logs
+security_events.log
+security_events.log.*
+audit_trail.log
+compliance_reports/
+
+# Backup files
+backups/
+*.backup
+*.bak
+
+# QR codes and 2FA data
+2fa_qr_codes/
+*.qr.png
+*_2fa_qr.png
+
+# Session and temporary security data
+.sessions/
+temp_keys/
+*.session
+*.tmp.enc
+
+# =====================================
+# PYTHON SPECIFIC
+# =====================================
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
+*$py.class
+
+# C extensions
 *.so
-*.egg
-*.egg-info/
-dist/
+
+# Distribution / packaging
+.Python
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
 .eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
 env/
 venv/
-.venv/
 ENV/
 env.bak/
-pip-wheel-metadata/
+venv.bak/
 
-# ----------------------------
-# IDE and editor files
-# ----------------------------
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# =====================================
+# OPERATING SYSTEM SPECIFIC
+# =====================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =====================================
+# IDE AND EDITOR SPECIFIC
+# =====================================
+
+# Visual Studio Code
 .vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# PyCharm
 .idea/
+*.iws
+*.iml
+*.ipr
+
+# Vim
+*~
 *.swp
 *.swo
-*.bak
-*.tmp
-*.log
+*~
 
-# ----------------------------
-# OS generated files
-# ----------------------------
-.DS_Store
-Thumbs.db
-desktop.ini
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
 
-# ----------------------------
-# App-specific data (sensitive)
-# ----------------------------
-# Encrypted notes and user data should NEVER be committed
-notes/
-users.json
-config.json
-settings.json
-keys/
-backups/
-*.enc
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
 
-# ----------------------------
-# Virtual environments and cache
-# ----------------------------
-*.sqlite3
-*.db
-*.log
-.cache/
-*.spec
-*.out
+# Atom
+.atom/
 
-# ----------------------------
-# Optional: compiled UI resources
-# ----------------------------
-*.ico
-*.png
-*.jpg
-*.jpeg
-*.gif
-assets/__pycache__/
-assets/tmp/
+# =====================================
+# SECURITY AND DEVELOPMENT TOOLS
+# =====================================
+
+# Security scan reports
+bandit_report.json
+bandit_report.txt
+security_scan_results/
+vulnerability_reports/
+*.security.json
+
+# Semgrep and other security tools
+.semgrep/
+.safety/
+.bandit/
+
+# HSM and hardware security
+hsm_config/
+*.p11
+*.pkcs11
+
+# Compliance and audit files
+compliance_exports/
+audit_exports/
+*.compliance.json
+
+# Memory dumps and forensic data
+*.dmp
+*.dump
+memory_dumps/
+
+# Encryption test files
+test_encrypted/
+*.test.enc
+test_*.key
+
+# Development and debugging
+debug.log
+debug_*.log
+*.debug
+.debug/
+
+# Temporary directories
+tmp/
+temp/
+.tmp/
+.temp/
+
+# =====================================
+# APPLICATION SPECIFIC
+# =====================================
+
+# SecureNotes specific temporary files
+*.notes.tmp
+notes_cache/
+session_cache/
+temp_notes/
+
+# Theme and UI cache
+ui_cache/
+theme_cache/
+*.ui.cache
+
+# Export files (should be explicitly added if needed)
+exports/
+*.export.txt
+*.export.json
+*.export.xml
+
+# Malware signatures and threat detection data
+signatures/
+threat_intel/
+malware_hashes/
+
+# Performance and profiling data
+*.prof
+*.profile
+profiling_data/
+
+# Lock files for file operations
+*.lock
+*.lck
+
+# =====================================
+# DOCUMENTATION BUILD FILES
+# =====================================
+
+# Generated documentation
+docs/build/
+docs/_build/
+site/
+
+# =====================================
+# CONFIGURATION OVERRIDES
+# =====================================
+
+# Local configuration files (should not be committed)
+config.local.json
+settings.local.json
+.env.local
+.env.production.local
+
+# =====================================
+# NOTES AND COMMENTS
+# =====================================
+
+# This .gitignore is specifically designed for SecureNotes, a security-focused
+# note-taking application. It prioritizes:
+#
+# 1. User data protection - No encrypted notes or user data
+# 2. Security - No keys, passwords, or security artifacts
+# 3. Privacy - No logs or audit trails that might contain sensitive data
+# 4. Development safety - Standard Python and IDE exclusions
+#
+# IMPORTANT: Review this file regularly and ensure no sensitive data
+# is accidentally committed to version control.
+#
+# For production deployments, consider additional exclusions based on
+# your specific deployment environment and security requirements.
